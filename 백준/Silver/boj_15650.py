@@ -31,6 +31,23 @@
 # for result in results:
 #     print(" ".join(map(str, result)))
 
+# import sys
+# N, M = map(int, sys.stdin.readline().split())
+
+# path = []
+
+# def dfs(start):
+#     if len(path) == M:
+#         print(" ".join(map(str, path)))
+#         return
+    
+#     for i in range(start, N + 1):
+#         path.append(i)
+#         dfs(i + 1)
+#         path.pop()
+
+# dfs(1)
+
 import sys
 N, M = map(int, sys.stdin.readline().split())
 
@@ -40,10 +57,10 @@ def dfs(start):
     if len(path) == M:
         print(" ".join(map(str, path)))
         return
-    
+
     for i in range(start, N + 1):
         path.append(i)
-        dfs(i + 1)
+        dfs(i+1)
         path.pop()
 
 dfs(1)
