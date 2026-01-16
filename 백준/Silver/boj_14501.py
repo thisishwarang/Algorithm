@@ -1,21 +1,47 @@
+# N = int(input())
+# list = []
+# for _ in range(N):
+#     T, P = map(int, input().split())
+#     list.append((T, P))
+
+# max_profit = 0
+
+# def dfs(day, total_profit):
+#     global max_profit
+#     if day > N:
+#         return
+#     if day == N:
+#         max_profit = max(max_profit, total_profit)
+#         return
+#     if day + list[day][0] <= N:
+#         dfs(day + list[day][0], total_profit + list[day][1])
+#     dfs(day+1, total_profit)
+
+# dfs(0, 0)
+# print(max_profit)
+
+
+
 N = int(input())
-list = []
-for _ in range(N):
+
+works = []
+
+for i in range(N):
     T, P = map(int, input().split())
-    list.append((T, P))
+    works.append([T, P])
 
-max_profit = 0
+max_total = 0
 
-def dfs(day, total_profit):
-    global max_profit
+def dfs(day, total):
+    global max_total
     if day > N:
         return
     if day == N:
-        max_profit = max(max_profit, total_profit)
+        max_total = max(max_total, total)
         return
-    if day + list[day][0] <= N:
-        dfs(day + list[day][0], total_profit + list[day][1])
-    dfs(day+1, total_profit)
-
+    if day + works[day][0] <= N:
+        dfs(day + works[day][0], total + works[day][1])
+    dfs(day + 1, total)
 dfs(0, 0)
-print(max_profit)
+
+print(max_total)
